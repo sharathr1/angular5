@@ -29,6 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### External Lib:
 npm i --save angular-highcharts highcharts
+
 npm i --save-dev @types/highcharts
+
 npm install ng2-pdf-viewer --save
+
 npm install --save @angular/material @angular/cdk
