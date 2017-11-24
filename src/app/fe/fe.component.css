@@ -1,0 +1,39 @@
+/*td{
+    background-color: aquamarine;
+    display: table-cell;
+    vertical-align: inherit;
+}*/
+
+
+/*table, th, td {
+   border: 1px solid black;
+}*/
+
+table {
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  font-style: italic
+}
+
+table {
+  width: 20%;
+}
+
+.my-container {
+  background-color: burlywood;
+  text-align: center;
+  width: 50%;
+}
+
+.table-container {
+  margin-left: 40%;
+}
+
+.geimage {
+  margin-top: 5%;
+}

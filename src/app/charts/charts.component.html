@@ -1,0 +1,4 @@
+<button (click)="add()">Add Point!</button>
+<div class="align-left" [chart]="chart"></div>
+<div class="align-left" [chart]="options" (selection)="onChartSelection($event)"></div>
+<div class="align-left" [chart]="dynamicdata" (selection)="onChartSelection($event)"></div>

@@ -1,0 +1,21 @@
+<div class="my-container">
+  <img class="geimage" src='{{imagepath}}'> {{tech}}
+  <div class="table-container">
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>{{name}}</td>
+      </tr>
+      <tr>
+        <td>Full Name</td>
+        <td>{{getFullName()}}</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>{{cell}}</td>
+      </tr>
+    </table>
+  </div>
+  <button (click)=fetchdata()>GET Status :</button>
+  <!--{{people.status}}-->
+</div>

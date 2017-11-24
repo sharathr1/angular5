@@ -1,0 +1,60 @@
+<div class="parent-register">
+  <div class="register-container-left">
+    <!-- [hidden]="!submitted" -->
+    <div class="user-form-header">
+      <div class="page-header"><b> User Form</b></div>
+      {{formdata}}
+    </div>
+    <div *ngIf='errorStatus' class="alert alert-danger">
+      <strong>Error!</strong> {{errorMsg}}.
+    </div>
+    <form class="user-form">
+      <div class="form-group">
+        <label for="userid">ID</label>
+        <input type="text" placeholder="" class="form-control" id="userid" required [(ngModel)]="model.user_id" name="id">
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" placeholder="first name..." minlength="4" class="form-control" id="name" [(ngModel)]="model.name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Ph. No</label>
+        <input type="text" class="form-control" id="phone" [(ngModel)]="model.phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="tech">Tech</label>
+        <div>
+          <select class="form-control" [(ngModel)]="model.tech" [ngModelOptions]="{standalone: true}">
+          <option  disabled selected>Select ...</option>          
+          <option *ngFor="let item of techList" [ngValue]="item" >{{ item }}</option>
+        </select>
+        </div>
+      </div>
+      <button type="submit " class="btn btn-default " (click)="onSubmit() ">Submit</button>
+      <button type="submit " class="btn btn-default " (click)="reset() ">Reset</button>
+    </form>
+  </div>
+  <div class="register-container-right">
+    <div class="container-view-right">
+      <div class="register-container-right-table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>First Name</th>
+              <th>Tech</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="success" *ngFor='let lst of objList'>
+              <td>{{lst.user_id}}</td>
+              <td>{{lst.name}}</td>
+              <td>{{lst.tech}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div></div>
+</div>
