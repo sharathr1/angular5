@@ -11,10 +11,10 @@ export class PdfreaderComponent implements OnInit {
   pdfSrc: any;
 
   constructor(private http: Http) {
-    /*    this.pdfSrc = './app/pdfreader/document.pdf';
+    /*    this.pdfSrc = '../../document.pdf';
     */
-    /*    this.pdfSrc = './document.pdf';
-    */
+    this.pdfSrc = 'assets/document.pdf';
+
     // this.pdfSrc = 'http://3.209.196.136:3000/files/DOC1697152_Rev1.pdf';
     /*    this.pdfSrc = this.http.get('document.pdf');
       */    // debugger;

@@ -2,3 +2,7 @@
   background-color: antiquewhite;
   text-align: center;
 }
+
+thead>tr>th {
+  cursor: pointer;
+}

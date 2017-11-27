@@ -35,3 +35,9 @@ npm i --save-dev @types/highcharts
 npm install ng2-pdf-viewer --save
 
 npm install --save @angular/material @angular/cdk
+
+npm install bootstrap --save
+
+npm install typings --global
+
+npm i ng2-search-filter --save

@@ -52,6 +52,9 @@ import { FECompoment } from './fe/fe.component';
 import { SnippetComponent } from './snippet/snippet.component';
 import { PdfreaderComponent } from './pdfreader/pdfreader.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe'; //importing the module
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 @NgModule({
   exports: [
@@ -109,6 +112,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule, PdfViewerModule,
     HttpModule,
+    Ng2SearchPipeModule,Ng2OrderModule ,NgxPaginationModule,
     PlunkerMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
