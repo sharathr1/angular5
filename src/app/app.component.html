@@ -10,8 +10,8 @@
 
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    GEHC
+  <h1 class="title-header">
+    Angular 4-5
     <!--Welcome {{title}}!-->
   </h1>
   <!--<img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">-->
@@ -40,16 +40,45 @@
       <li><a routerLink="/popup" routerLinkActive="active">popup</a></li>
       <li><a routerLink="/app-charts" routerLinkActive="active">simple-chart-example</a></li>
       <li><a routerLink="/pdf" routerLinkActive="active">pdf</a></li>
-
       <!-- <li><a routerLink="/popup-root" routerLinkActive="active">Popup</a></li> -->
+      <li></li>
+
     </ul>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/sharath-ranganath-83b03543/" target="_blank" class="fa fa-linkedin">
+      </a></div>
     <!-- <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul> -->
   </div>
+
 </nav>
+<div class="carousel-loop-left">
+  <div class="carousel-image-left">
+    <a [routerLink]="getPreroute()" routerLinkActive="active">
+        <img class="carousel-image-id-left" src="assets/grt.jpg"></a>
+  </div>
+</div>
+<div class="carousel-loop">
+  <div class="carousel-image">
+    <a [routerLink]="getroute()" routerLinkActive="active">
+        <img class="carousel-image-id" src="assets/grt.jpg"></a>
+  </div>
+</div>
+
 <!-- <userregister-form></userregister-form> -->
+<!-- <userregister-form></userregister-form> -->
+
 <!--fe-data><dialog-overview-example></dialog-overview-example>
 </fe-data-->
-<router-outlet></router-outlet>
+<div class="router-view">
+
+  <router-outlet></router-outlet>
+</div>
+<div class="footer">
+  2017 SR. All Rights Super Duper Reserved.
+</div>
+<!--<div class="scrollbar" id="style-13">
+    <div class="force-overflow"></div>
+  </div>-->

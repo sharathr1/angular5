@@ -54,7 +54,11 @@ import { PdfreaderComponent } from './pdfreader/pdfreader.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe'; //importing the module
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ApiserviceComponent } from './apiservice/apiservice.component';
+import { FileuploaderComponent } from './fileuploader/fileuploader.component'; // <-- import the module
+import { NgUploaderModule } from 'ngx-uploader';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @NgModule({
   exports: [
@@ -91,18 +95,19 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: []
+  declarations: [ApiserviceComponent, FileuploaderComponent]
 })
 export class PlunkerMaterialModule { }
 
 const appRoutes: Routes = [
-  { path: 'popup', component: DialogOverviewExample },
-  { path: 'register-form', component: RegisterdataFormComponent },
-  { path: 'app-charts', component: ChartsComponent },
+
   { path: 'register', component: RegisterCompoment },
-  { path: 'votetaker', component: VoteTakerComponent },
-  { path: 'snippet', component: SnippetComponent },
+  { path: 'register-form', component: RegisterdataFormComponent },
   { path: 'fe', component: FECompoment },
+  { path: 'snippet', component: SnippetComponent },
+  { path: 'votetaker', component: VoteTakerComponent },
+  { path: 'popup', component: DialogOverviewExample },
+  { path: 'app-charts', component: ChartsComponent },
   { path: 'pdf', component: PdfreaderComponent }
 
 ];
@@ -112,8 +117,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule, PdfViewerModule,
     HttpModule,
-    Ng2SearchPipeModule,Ng2OrderModule ,NgxPaginationModule,
-    PlunkerMaterialModule,
+    Ng2SearchPipeModule, Ng2OrderModule, NgxPaginationModule,
+    PlunkerMaterialModule, NgUploaderModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     ChartModule,

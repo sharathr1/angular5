@@ -1,16 +1,18 @@
-<div *ngIf='itStatus'>
-  Registration Form </div>
-<!--powers is list of string -->
-<div *ngFor='let pwr of powers'>
-  <ul>
-    <li>{{pwr}}</li>
-  </ul>
-</div>
-<!--itList is list of Obj -->
-<div class="container">
-  <div *ngFor='let lst of itList'>
+<div class="register-data">
+  <div *ngIf='itStatus'>
+    Registration Form </div>
+  <!--powers is list of string -->
+  <div *ngFor='let pwr of powers'>
     <ul>
-      <li>{{lst.ID}} : {{lst.Name}}</li>
+      <li>{{pwr}}</li>
     </ul>
+  </div>
+  <!--itList is list of Obj -->
+  <div class="container">
+    <div *ngFor='let lst of itList'>
+      <ul>
+        <li>{{lst.ID}} : {{lst.Name}}</li>
+      </ul>
+    </div>
   </div>
 </div>

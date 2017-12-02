@@ -1,0 +1,105 @@
+.title-header {
+  background-image: url("gradient_bg.jpg");
+  background-repeat: repeat-x;
+  position: relative;
+  height: 44px;
+  margin-top: 0%;
+}
+
+h1 {
+  color: bisque;
+  margin-bottom: 0;
+}
+
+.router-view {
+  height: 503px;
+  overflow-y: scroll;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.fa {
+  padding: 7px;
+  font-size: 21px;
+  width: 38px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.social-icons {
+  float: right;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+  bottom: 0px;
+  width: 100%;
+  position: absolute;
+  border: solid;
+  text-align: center;
+  background-color: aliceblue !important;
+}
+
+.carousel-loop {
+  float: right;
+  /*background: burlywood;*/
+  /*width: 73px;
+  height: 32px;*/
+  position: absolute;
+  top: 53%;
+  top: 53%;
+  right: 1%;
+}
+
+.carousel-loop-left {
+  float: left;
+  position: absolute;
+  top: 53%;
+  left: 1%;
+}
+
+.carousel-image {
+  height: 20px;
+  width: 20px;
+}
+
+.carousel-image-left {
+  height: 20px;
+  width: 20px;
+}
+
+.carousel-image-id {
+  position: relative;
+  height: 95%;
+  width: 95%;
+}
+
+.carousel-image-id-left {
+  position: relative;
+  height: 95%;
+  width: 95%;
+  transform: rotate(180deg);
+}
