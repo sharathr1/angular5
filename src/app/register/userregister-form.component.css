@@ -17,7 +17,7 @@
   width: 47%;
   float: left;
   margin-left: 3%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .register-container-right-table {

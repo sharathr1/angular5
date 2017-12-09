@@ -26,7 +26,7 @@ export class AppComponent {
 
 
   }
-  getroute() {
+ /* getroute() {
     console.log('get route');
     this.currRouter = window.location.pathname;
     console.log('get route ' + this.currRouter);
@@ -39,8 +39,10 @@ export class AppComponent {
     } else if (this.currRouter === "/fe") {
       this.nextRouter = "snippet";
     } else if (this.currRouter === "/snippet") {
+      this.nextRouter = "viewdetails";
+    }else if (this.currRouter === "/viewdetails") {
       this.nextRouter = "votetaker";
-    } else if (this.currRouter === "/votetaker") {
+    }else if (this.currRouter === "/votetaker") {
       this.nextRouter = "popup";
     } else if (this.currRouter === "/popup") {
       this.nextRouter = "app-charts";
@@ -54,9 +56,9 @@ export class AppComponent {
 
 
   getPreroute() {
-    console.log('get route');
+    console.log('get Pre route');
     this.currRouter = window.location.pathname;
-    console.log('get route ' + this.currRouter);
+    console.log('get Pre route ' + this.currRouter);
     if (this.currRouter == "/") {
       this.nextRouter = "pdf";
     } else if (this.currRouter === "/register") {
@@ -67,15 +69,17 @@ export class AppComponent {
       this.nextRouter = "register-form";
     } else if (this.currRouter === "/snippet") {
       this.nextRouter = "fe";
-    } else if (this.currRouter === "/votetaker") {
+    }else if (this.currRouter === "/viewdetails") {
       this.nextRouter = "snippet";
+    }else if (this.currRouter === "/votetaker") {
+      this.nextRouter = "viewdetails";
     } else if (this.currRouter === "/popup") {
       this.nextRouter = "votetaker";
     } else if (this.currRouter === "/app-charts") {
       this.nextRouter = "popup";
     } else if (this.currRouter === "/pdf") {
-      this.nextRouter = "/app-charts";
+      this.nextRouter = "/";
     }
     return this.nextRouter;
   }
-}
+*/}

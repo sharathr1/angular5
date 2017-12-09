@@ -3,15 +3,19 @@ import { Chart } from 'angular-highcharts';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import { User } from '../register/user';
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
+
+  popupView: boolean = false;
   constructor(private http: Http) {
 
   }
+  user: User;
   chart: any;
   defaultChart() {
     this.chart = new Chart({
@@ -32,10 +36,10 @@ export class ChartsComponent implements OnInit {
   }
   // add point to chart serie
   add() {
-    console.log("add");
+/*    this.postpoints();
+*/    console.log("add");
     this.chart.addPoint(Math.floor(Math.random() * 10));
   }
-
 
   ngOnInit() {
     this.defaultChart();
@@ -47,6 +51,7 @@ export class ChartsComponent implements OnInit {
   options3: Object;
   dynamicdata: Object;
   userslist: any;
+  userslistObj: any;
   items: Array<any> = [];
 
   optionschart() {
@@ -59,18 +64,19 @@ export class ChartsComponent implements OnInit {
       ]
     });
   }
-  fetchdata() {
+
+  fetchdata(): Promise<any> {
     console.log("Fetch Data");
     return this.http.get(`http://localhost:9093/itest/users`)
-      .map((res: Response) => res.json())
-      .subscribe(res => {
-        this.userslist = res;
-        for (var i = 0; i < res.userslist.length; i++) {
-          this.items.push(res.userslist[i].userScore);
+      .toPromise()
+      .then(res => {
+        this.userslistObj = res.json();
+        for (var i = 0; i < res.json().userslist.length; i++) {
+          this.items.push(res.json().userslist[i].userScore);
         }
-        console.log(this.items.length);
-        this.userslist = JSON.stringify(this.userslist);
+        console.log("chart data ", JSON.stringify(this.userslistObj));
         this.chartdata();
+        return res;
       });
   }
   chartdata() {
@@ -84,11 +90,111 @@ export class ChartsComponent implements OnInit {
     });
   }
 
-
   from: any;
   to: any;
   onChartSelection(e) {
     this.from = e.originalEvent.xAxis[0].min.toFixed(2);
     this.to = e.originalEvent.xAxis[0].max.toFixed(2);
   }
+  userId: any;
+  userScore: any;
+  postpoints2(id, score) {
+    if (id > 0) {
+      console.log(id, score);
+      this.popupView = true;
+      const body = [{ userId: id, userScore: score }];
+      this.http.post('http://localhost:9093/itest/users', body)
+        .subscribe(
+        );
+      this.items = [];
+/*      setTimeout(() => { this.fetchdata(); }, 500);
+*/    }
+  }
+
+  popupViewer() {
+    this.popupView = true;
+  }
+
+
+  postpoints(id, score) {
+    console.log(id, score)
+    let promise = new Promise((resolve, reject) => {
+      const body = [{ userId: id, userScore: score }];
+      this.http.post('http://localhost:9093/itest/users', [{ userId: id, userScore: score }])
+        .toPromise()
+        .then((result) => {
+          console.log("ok: ", JSON.stringify(result));
+          this.items = [];
+          this.fetchdata();
+        }
+        );
+
+    });
+  }
+
+  userS = {
+    "userslist": [
+      {
+        "userId": 0,
+        "userScore": 55,
+        "userName": "Sharath",
+        "userPhone": "12"
+      },
+      {
+        "userId": 1,
+        "userScore": 50,
+        "userName": "Swagath",
+        "userPhone": "8564"
+      },
+      {
+        "userId": 2,
+        "userScore": 55,
+        "userName": "Akshay",
+        "userPhone": "75400"
+      },
+      {
+        "userId": 3,
+        "userScore": 55,
+        "userName": "Hemanth",
+        "userPhone": "2548"
+      },
+      {
+        "userId": 4,
+        "userScore": 40,
+        "userName": "Abhishek",
+        "userPhone": null
+      },
+      {
+        "userId": 5,
+        "userScore": 10,
+        "userName": "Indhudhar",
+        "userPhone": "8895"
+      },
+      {
+        "userId": 6,
+        "userScore": 75,
+        "userName": "Teja",
+        "userPhone": null
+      },
+      {
+        "userId": 8,
+        "userScore": 80,
+        "userName": "Jithin",
+        "userPhone": null
+      },
+      {
+        "userId": 9,
+        "userScore": 45,
+        "userName": "Gagan",
+        "userPhone": "007"
+      },
+      {
+        "userId": 10,
+        "userScore": 0,
+        "userName": "Hari",
+        "userPhone": null
+      }
+    ]
+  };
+
 }

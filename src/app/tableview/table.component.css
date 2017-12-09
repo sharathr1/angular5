@@ -1,0 +1,64 @@
+table {
+  width: 100%;
+}
+
+thead,
+tbody,
+tr,
+td,
+th {
+  display: block;
+}
+
+thead th {
+  height: 30%;
+}
+
+tbody {
+  overflow-y: auto;
+  height: 241px;
+}
+
+tbody td,
+thead th {
+  float: left;
+  width: 20%;
+}
+
+.downloader-cont {
+  float: right;
+  margin-top: -2%;
+}
+
+.pagination-container {
+  border-top: 3px solid #dddddd;
+}
+
+tr:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  visibility: hidden;
+}
+
+.download-image {
+  background-repeat: repeat-x;
+  position: relative;
+  height: 35px;
+  width: 35px;
+  margin-top: 0%;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}

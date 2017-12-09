@@ -1,4 +1,57 @@
-<button (click)="add()">Add Point!</button>
-<div class="align-left" [chart]="chart"></div>
-<div class="align-left" [chart]="options" (selection)="onChartSelection($event)"></div>
-<div class="align-left" [chart]="dynamicdata" (selection)="onChartSelection($event)"></div>
+<div style="height: 9%;">
+  <div style="width: 50%; float:left">
+    <button (click)="add()" class="btn btn-info btn-lg">Add Point!</button> </div>
+  <div style="width: 50%; float:right">
+    <button (click)="popupViewer()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#popoup">Add DB Point!</button>
+  </div>
+</div>
+<div class="chart-container">
+  <div class="align-left" [chart]="chart"></div>
+  <div class="align-left" [chart]="dynamicdata" (selection)="onChartSelection($event)"></div>
+  <div class="align-left" [chart]="options" (selection)="onChartSelection($event)"></div>
+</div>
+
+
+<div id="popoup" class="modal fade" role="dialog" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+        ID :<input type="text" #id name="ID"> Score :<input type="text" #score name="score">
+      </div>
+      <div class="modal-footer">
+        <button (click)="postpoints(id.value, score.value)" class="btn btn-default" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--<button (click)="postpoints()" data-target="#popoup">Add DB Point!</button>
+-->
+<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<div id="popoup" class="modal fade" role="dialog">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+  <div class="modal-dialog">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+-->

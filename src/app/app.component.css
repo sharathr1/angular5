@@ -13,7 +13,7 @@ h1 {
 
 .router-view {
   height: 503px;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-left: 4%;
   margin-right: 4%;
 }

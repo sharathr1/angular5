@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { Ng2YaTableModule } from 'ng2-ya-table';
+
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -49,8 +52,8 @@ import { RegisterCompoment } from './register/register.component';
 import { VoterComponent } from './voter/voter.component';
 import { VoteTakerComponent } from './voter/votetaker.component';
 import { FECompoment } from './fe/fe.component';
-import { SnippetComponent } from './snippet/snippet.component';
-import { PdfreaderComponent } from './pdfreader/pdfreader.component';
+/*import { SnippetComponent } from './snippet/snippet.component';
+*/import { PdfreaderComponent } from './pdfreader/pdfreader.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe'; //importing the module
@@ -59,6 +62,7 @@ import { ApiserviceComponent } from './apiservice/apiservice.component';
 import { FileuploaderComponent } from './fileuploader/fileuploader.component'; // <-- import the module
 import { NgUploaderModule } from 'ngx-uploader';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TableViewComponent } from './tableview/tableview.component';
 
 @NgModule({
   exports: [
@@ -104,11 +108,12 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterCompoment },
   { path: 'register-form', component: RegisterdataFormComponent },
   { path: 'fe', component: FECompoment },
-  { path: 'snippet', component: SnippetComponent },
+/*  { path: 'snippet', component: SnippetComponent },
+*/  { path: 'viewdetails', component: TableViewComponent },
   { path: 'votetaker', component: VoteTakerComponent },
   { path: 'popup', component: DialogOverviewExample },
   { path: 'app-charts', component: ChartsComponent },
-  { path: 'pdf', component: PdfreaderComponent }
+  { path: 'pdf', component: PdfreaderComponent },
 
 ];
 @NgModule({
@@ -128,9 +133,9 @@ const appRoutes: Routes = [
     )
   ],
   declarations: [
-    AppComponent, RegisterCompoment, PdfreaderComponent,
+    AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent,
     RegisterdataFormComponent, ChartsComponent, VoterComponent,
-    VoteTakerComponent, FECompoment, SnippetComponent,
+    VoteTakerComponent, FECompoment, /*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog
   ],
   providers: [ChartsComponent],
