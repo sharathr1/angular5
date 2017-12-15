@@ -3,6 +3,7 @@ import { ChartsComponent } from '../charts/charts.component';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import 'rxjs/add/operator/catch';
 
 @Component({
   selector: 'tableview-root',
@@ -146,10 +147,23 @@ export class TableViewComponent {
   public uploadFile(fileToUpload: File) {
     const _formData = new FormData();
     _formData.append('file', fileToUpload);
-        _formData.append('file', fileToUpload);
+    _formData.append('file', fileToUpload);
 
-    return this._https.post("https://blobstore-ls-ge.run.aws-usw02-pr.ice.predix.io/v1/blob", _formData); //note: no HttpHeaders passed as 3d param to POST!
-    //So no Content-Type constructed manually.
-    //Angular 4.3/4.x does it automatically.
+    return this._https.post("https://blobstore-ls-ge.run.aws-usw02-pr.ice.predix.io/v1/blob", _formData);
   }
+
+  onNameKepup(event: any) {
+    console.log("check ", event.target.value)
+  }
+  get: any;
+  getProfile() {
+    console.log("check profile ");
+    /*   this.get = */
+    this._https.get("https://api.myjson.com/bins/n32sz")
+      .subscribe(
+      (data) => {
+        console.log(this.get = data.json());
+      });
+  }
+
 }

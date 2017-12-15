@@ -3,6 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <div>
+
           <h4>
             User Details
           </h4>
@@ -56,4 +57,7 @@
       <button type="submit">Submit</button>
     </form>
   </div>
+  <input type="text" (keyup)="onNameKepup($event)">
+  <button (click)="getProfile()">Get Profile</button>{{ get |json }}
+
 </div>
