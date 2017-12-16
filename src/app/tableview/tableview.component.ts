@@ -155,15 +155,5 @@ export class TableViewComponent {
   onNameKepup(event: any) {
     console.log("check ", event.target.value)
   }
-  get: any;
-  getProfile() {
-    console.log("check profile ");
-    /*   this.get =http://myjson.com/v6kmr */
-    this._https.get("https://api.myjson.com/bins/n32sz")
-      .subscribe(
-      (data) => {
-        console.log(this.get = data.json());
-      });
-  }
 
 }

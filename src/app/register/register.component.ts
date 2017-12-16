@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
+import { Http } from '@angular/http';
 
 @Component({
     selector: 'register-data',
@@ -7,6 +8,7 @@ import { User } from './user';
     styleUrls: ['./register.component.css']
 })
 export class RegisterCompoment {
+
     itStatus: boolean = false;
 
     itList: any[] = [{
@@ -34,4 +36,40 @@ export class RegisterCompoment {
         return this.respstr;
     }
 
+    get: any;
+    errorMsg: any;
+    errorCheck: boolean = false;
+    succesCheck: boolean = false;
+    dofade: boolean = false;
+
+    constructor(private _https: Http) {
+
+    }
+
+    getProfile(url) {
+        console.log("check profile ", url);
+        /*   this.get =http://myjson.com/v6kmr 
+        https://api.myjson.com/bins/n32sz
+        https://local-scheduling-ge.run.aws-usw02-pr.ice.predix.io/api/1/holidays?year=2017&month=9*/
+
+        this._https.get(url).map((res) => res)
+            .subscribe(
+            (data) => {
+                console.log(this.get = data.json());
+                this.succesCheck = true;
+                this.dofade = true;
+                setTimeout(() => {
+                    this.dofade = false;
+                }, 3000);
+            },
+            (error) => { this.errorhandler(error); }
+            );
+    }
+    errorhandler(error) {
+
+        console.log("error", error);
+        this.errorMsg = error.json();
+        this.errorCheck = true;
+
+    }
 }

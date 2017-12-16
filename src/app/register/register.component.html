@@ -16,3 +16,18 @@
     </div>
   </div>
 </div>
+<div>
+  <input type="text" #url (keyup)="onNameKepup($event)">
+
+  <button (click)="getProfile(url.value)">Get Profile</button>
+  <div *ngIf="succesCheck && dofade " class="alert alert-success alert-dismissable " data-dismiss="alert ">
+    <a href="# " class="close " data-dismiss="alert " aria-label="close ">&times;</a>
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>
+</div>
+<pre style="height: 257px;width: 433px;" *ngIf=" succesCheck ">{{get | json}}</pre>
+
+
+<div colspan="5" *ngIf="errorCheck " class="alert alert-danger ">
+  <strong>{{errorMsg.message}}!</strong> Unable to get profile information.
+</div>

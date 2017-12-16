@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     selector: 'app-voter',
     template: `
     <div class="voter-container">
-    <h4>{{name}}</h4>
+    <h4>{{name}}</h4>{{test}}
     <button (click)="vote(true)"  [disabled]="voted">Agree</button>
     <button (click)="vote(false)" [disabled]="voted">Disagree</button> <div>
   `,
