@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { Http } from '@angular/http';
+declare var jquery: any;
+declare var $: any;
+//"jquery": "^3.2.1", 
 
 @Component({
     selector: 'register-data',

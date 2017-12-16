@@ -6,8 +6,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Ng2YaTableModule } from 'ng2-ya-table';
-
-
 import {
   MatAutocompleteModule,
   MatButtonModule,
