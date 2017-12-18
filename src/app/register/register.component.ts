@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { Http } from '@angular/http';
+import { ServiceCompoment } from '../service/service-http.component';
+import { Observable } from 'rxjs';
+
 declare var jquery: any;
 declare var $: any;
 //"jquery": "^3.2.1", 
@@ -11,6 +14,9 @@ declare var $: any;
     styleUrls: ['./register.component.css']
 })
 export class RegisterCompoment {
+    constructor(private _https: Http, private _service: ServiceCompoment) {
+
+    }
 
     itStatus: boolean = false;
 
@@ -45,11 +51,8 @@ export class RegisterCompoment {
     succesCheck: boolean = false;
     dofade: boolean = false;
 
-    constructor(private _https: Http) {
 
-    }
-
-    getProfile(url) {
+    getProfile2(url) {
         console.log("check profile ", url);
         /*   this.get =http://myjson.com/v6kmr 
         https://api.myjson.com/bins/n32sz
@@ -68,11 +71,24 @@ export class RegisterCompoment {
             (error) => { this.errorhandler(error); }
             );
     }
+
+
+    getProfile(url) {
+        this._service.getService(url).subscribe(
+            (data) => {
+                this.get = data;
+                this.succesCheck = true;
+                this.dofade = true;
+                setTimeout(() => {
+                    this.dofade = false;
+                }, 3000);
+            },
+            (error) => { this.errorhandler(error); }
+        );
+    }
     errorhandler(error) {
-
         console.log("error", error);
-        this.errorMsg = error.json();
+        this.errorMsg = error.statusText;
         this.errorCheck = true;
-
     }
 }

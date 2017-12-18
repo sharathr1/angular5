@@ -61,7 +61,7 @@ import { FileuploaderComponent } from './fileuploader/fileuploader.component'; /
 import { NgUploaderModule } from 'ngx-uploader';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TableViewComponent } from './tableview/tableview.component';
-
+import { ServiceCompoment } from './service/service-http.component';
 @NgModule({
   exports: [
     CdkTableModule,
@@ -132,11 +132,11 @@ const appRoutes: Routes = [
   ],
   declarations: [
     AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent,
-    RegisterdataFormComponent, ChartsComponent, VoterComponent,
+    RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment,
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog
   ],
-  providers: [ChartsComponent],
+  providers: [ChartsComponent, ServiceCompoment],
   entryComponents: [DialogOverviewExampleDialog],
   bootstrap: [AppComponent, DialogOverviewExample]
 })
