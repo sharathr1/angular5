@@ -61,6 +61,7 @@ import { NgUploaderModule } from 'ngx-uploader';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TableViewComponent } from './tableview/tableview.component';
 import { ServiceCompoment } from './service/service-http.component';
+import { FormdataComponent } from './formdata/formdata.component';
 @NgModule({
   exports: [
     CdkTableModule,
@@ -111,6 +112,7 @@ const appRoutes: Routes = [
   { path: 'popup', component: DialogOverviewExample },
   { path: 'app-charts', component: ChartsComponent },
   { path: 'pdf', component: PdfreaderComponent },
+  { path: 'form', component: FormdataComponent }
 
 ];
 @NgModule({
@@ -133,7 +135,7 @@ const appRoutes: Routes = [
     AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent,
     RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment,
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
-    DialogOverviewExample, DialogOverviewExampleDialog
+    DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent
   ],
   providers: [ChartsComponent, ServiceCompoment],
   entryComponents: [DialogOverviewExampleDialog],
