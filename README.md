@@ -43,3 +43,5 @@ npm install typings --global
 npm i ng2-search-filter --save
 
 npm install ngx-uploader --save
+
+# npm install --save angular-localstorage

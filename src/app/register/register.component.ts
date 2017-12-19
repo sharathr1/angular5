@@ -15,7 +15,10 @@ declare var $: any;
 })
 export class RegisterCompoment {
     constructor(private _https: Http, private _service: ServiceCompoment) {
-
+        let lstorage = localStorage.getItem('checkValue');
+        if (lstorage == null) {
+            localStorage.setItem('checkValue', "Sharath");
+        }
     }
 
     itStatus: boolean = false;
