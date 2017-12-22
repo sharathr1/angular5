@@ -2,9 +2,7 @@
   TS Controller
 </p>
 <form [formGroup]="nameForm" novalidate>
-  <div class="form-group" [ngClass]="{
-        'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
-        'has-success': firstName.valid && (firstName.dirty || firstName.touched) }">
+  <div class="form-group">
     <label>What's your first name? </label>
     <input class="form-control" formControlName="firstname">
   </div>
