@@ -8,15 +8,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     <button (click)="vote(true)"  [disabled]="voted">Agree</button>
     <button (click)="vote(false)" [disabled]="voted">Disagree</button> <div>
   `,
-    styleUrls: ['./voter.component.css']
+    styleUrls: ['./voter.component.css'],
+    inputs: ['test', 'name'],
+    outputs: ['onVoted']
 })
 export class VoterComponent {
-    @Input() test: String;
-    @Input() name: string;
+    /* @Input() test: String;
+     @Input() name: string;*/
     @Output() onVoted = new EventEmitter<boolean>();
     voted = false;
 
     vote(agreed: boolean) {
+        debugger;
         this.onVoted.emit(agreed);
         this.voted = true;
     }

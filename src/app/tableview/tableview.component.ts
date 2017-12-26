@@ -111,30 +111,69 @@ export class TableViewComponent {
     return str;
   }
 
+  _formData: any;
+  message: any;
   Name: string;
   myFile: File; /* property of File type */
   fileChange(files: any) {
-    console.log(files);
-
-    this.myFile = files[0].nativeElement;
+    this.myFile = files[0];
   }
 
-  /* Now send your form using FormData */
-  _formData: any;
-  message: any;
-  onSubmit(): void {
+  onSubmit(files: any) {
+    let formData: FormData = new FormData();
+    formData.append('file', files);
+    let headers = new Headers();
+    /** No need to include Content-Type in Angular 4 
+    headers.append('Content-Type', 'multipart/form-data');*/
+    headers.append('Accept', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+    this._https.post(`https://blobstore-ls-ge.run.aws-usw02-pr.ice.predix.io/v1/blob`, formData, options)
+      .map(res => res.json())
+      .catch(error => Observable.throw(error))
+      .subscribe(
+      data => console.log('success'),
+      error => console.log(error)
+      )
+  }
+
+  fileChange2(event) {
+    let fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      let file: File = fileList[0];
+      let formData: FormData = new FormData();
+      formData.append('file', file);
+      let headers = new Headers();
+      /** No need to include Content-Type in Angular 4
+      headers.append('Content-Type', 'multipart/form-data'); */
+      // headers.append('Accept', 'application/json');
+      let options = new RequestOptions({ headers: headers });
+      this._https.post(`https://blobstore-ls-ge.run.aws-usw02-pr.ice.predix.io/v1/blob`, formData, options)
+        .map(res => res.json())
+        .catch(error => Observable.throw(error))
+        .subscribe(
+        data => console.log('success'),
+        error => console.log(error)
+        )
+    }
+  }
+  onNameKepup(event: any) {
+    console.log("check ", event.target.value)
+  }
+
+  public uploadFile(fileToUpload: File) {
+    const _formData = new FormData();
+    _formData.append('file', fileToUpload);
+
+    return this._https.post("https://blobstore-ls-ge.run.aws-usw02-pr.ice.predix.io/v1/blob", _formData);
+  }
+  onSubmit3(files: any): void {
     let _formData = new FormData();
     _formData.append("Name", this.Name);
-    _formData.append("file", this.myFile);
+    _formData.append("file", files[0].nativeElement);
     let body = this._formData;
     let headers = new Headers();
-    /* let options = new Options({
-       headers: headers
-     });*/
-    /*this._https.post("https://blobstore-ls-ge.run.aws-usw02-pr.ice.predix.io/v1/blob", body)
-      .map((response: Response) => <string>response.json())
-      .subscribe((data) => this.message = data);*/
-    this.uploadFile(this.myFile)
+    console.log("_formData :", files[0].nativeElement)
+    this.uploadFile(files[0].nativeElement)
       .subscribe((response) => {
         console.log('set any success actions...');
         return response;
@@ -144,16 +183,5 @@ export class TableViewComponent {
       });
   }
 
-  public uploadFile(fileToUpload: File) {
-    const _formData = new FormData();
-    _formData.append('file', fileToUpload);
-    _formData.append('file', fileToUpload);
-
-    return this._https.post("https://blobstore-ls-ge.run.aws-usw02-pr.ice.predix.io/v1/blob", _formData);
-  }
-
-  onNameKepup(event: any) {
-    console.log("check ", event.target.value)
-  }
 
 }

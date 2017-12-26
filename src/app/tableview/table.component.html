@@ -51,11 +51,13 @@
     <!--  <div>
       <a (click)="downloadFile()">Download</a></div>
 -->
-    <form #yourForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #yourForm="ngForm" (ngSubmit)="onSubmit(myFile)">
       <input type="text" [(ngModel)]="Name" name="Name" />
       <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileChange(fileupload.files)" />
       <button type="submit">Submit</button>
     </form>
   </div>
+
+  <input type="file" (change)="fileChange2($event)" placeholder="Upload file" accept="*">
 
 </div>

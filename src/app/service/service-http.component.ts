@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 declare var jquery: any;
 declare var $: any;
 //"jquery": "^3.2.1", 
-
+@Injectable()
 @Component({
     selector: 'service-http-data',
     templateUrl: './service-http.component.html',

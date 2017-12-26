@@ -45,3 +45,8 @@ npm i ng2-search-filter --save
 npm install ngx-uploader --save
 
 # npm install --save angular-localstorage
+#npm install @nguniversal/module-map-ngfactory-loader --save
+#npm install @nguniversal/express-engine --save
+
+
+
