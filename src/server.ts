@@ -1,4 +1,4 @@
-// These are important and needed before anything else
+/** These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
@@ -50,4 +50,4 @@ app.get('*', (req, res) => {
 // Start up the Node server
 app.listen(PORT, () => {
     console.log(`Node server listening on http://localhost:${PORT}`);
-});
+});*/

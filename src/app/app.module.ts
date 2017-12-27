@@ -102,14 +102,14 @@ import { FormdataComponent } from './formdata/formdata.component';
 export class PlunkerMaterialModule { }
 
 const appRoutes: Routes = [
-
+  { path: '', redirectTo: 'register', pathMatch: 'prefix' },
   { path: 'register', component: RegisterCompoment },
   { path: 'register-form', component: RegisterdataFormComponent },
   { path: 'fe', component: FECompoment },
 /*  { path: 'snippet', component: SnippetComponent },
 */  { path: 'viewdetails', component: TableViewComponent },
   { path: 'votetaker', component: VoteTakerComponent },
-  { path: 'popup', component: DialogOverviewExample },
+  { path: 'popup', component: DialogOverviewExample, pathMatch: 'full' },
   { path: 'app-charts', component: ChartsComponent },
   { path: 'pdf', component: PdfreaderComponent },
   { path: 'form', component: FormdataComponent }
