@@ -62,6 +62,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { TableViewComponent } from './tableview/tableview.component';
 import { ServiceCompoment } from './service/service-http.component';
 import { FormdataComponent } from './formdata/formdata.component';
+import { UserComponent } from './user/user.component';
 @NgModule({
   exports: [
     CdkTableModule,
@@ -112,7 +113,8 @@ const appRoutes: Routes = [
   { path: 'popup', component: DialogOverviewExample, pathMatch: 'full' },
   { path: 'app-charts', component: ChartsComponent },
   { path: 'pdf', component: PdfreaderComponent },
-  { path: 'form', component: FormdataComponent }
+  { path: 'form', component: FormdataComponent },
+  { path: 'app-user', component: UserComponent, pathMatch: 'full' }
 
 ];
 @NgModule({
@@ -133,7 +135,7 @@ const appRoutes: Routes = [
   ],
   declarations: [
     AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent,
-    RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment,
+    RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment, UserComponent,
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent
   ],

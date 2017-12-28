@@ -1,0 +1,52 @@
+<div class="dashboard-view-container">
+  <div class="cust-container">
+    <div class="left-menu-container">
+      <div class="quicksearch-container">
+        <div style="text-align:center;"> Quich search</div>
+        <div class="search-box">
+          <input name="search" [(ngModel)]="filtercontent" type="text" class="form-control" placeholder="Search for...">
+        </div>
+      </div>
+      <div class="categories-container">
+        <div>
+          <div style="text-align:center;"> Categories <button (click)="refreshProducts()" type="button" class="btn btn-default btn-sm">
+               <span class="glyphicon glyphicon-refresh"></span>
+          </button>
+          </div>
+        </div>
+        <div class="categories-list-container">
+          <div (click)="filterByCat(i)" *ngFor="let i of categories">
+            <div class="categories-list">
+              {{ i }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-user-container">
+      <div class="view-user-list">
+        <div style="padding-left: 40%;"> User Dashboard </div>
+        <!--<pre>{{products|json}}</pre>-->
+        <div class="users-list-container">
+          <div *ngFor="let i of userlist | filter:filtercontent | orderBy:'userlist.title' ">
+            <div (mouseenter)="mouseEnterPopup(i)" (mouseleave)="mouseLeavePopup(i)" class="users-list">
+              {{ i.title }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div [hidden]="popup" class="popup-view"> {{ popupObj?.desc }}</div>
+
+    </div>
+  </div>
+  <!--  <div (mouseover)="hover=true" (mouseleave)="hover=false" style="height:100px; width:100px; background:#e2e2e2">
+
+    hello mouseover
+    <div ng-show="!hover">AAAAA</div>
+  </div>-->
+  <!-- <div (mouseover)="hover=true" (mouseleave)="hover=false">
+    <span [ngStyle]="{backgroundColor: hover==true  ? 'lightgrey' : 'grey' }">hello {{ hover }}</span>
+  </div>-->
+
+</div>

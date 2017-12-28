@@ -4,7 +4,6 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-@Injectable()
 @Component({
     selector: 'fe-data',
     templateUrl: './fe.component.html',
@@ -20,11 +19,13 @@ export class FECompoment {
     status: any;
     constructor(private http: Http) {
     }
-
+    num = 1;
     getFullName(): string {
         return this.name + ' ' + this.lastName;
     }
-
+    getFullNameNum(num): number {
+        return 1 + num;
+    }
     fetchdata() {
         console.log("Fetch Data")
         return this.http.get(`http://localhost:8084/fieldEngineerProfile/ping`)

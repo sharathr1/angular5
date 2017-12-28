@@ -1,0 +1,120 @@
+.dashboard-view-container {
+  height: 480px;
+  width: auto;
+  background-color: rgba(123, 86, 86, 0.13);
+  border-radius: 12px;
+}
+
+.cust-container {
+  height: 96%;
+  padding-bottom: 0%;
+  padding-top: 2%;
+}
+
+.left-menu-container {
+  width: 18%;
+  height: 100%;
+  float: left;
+  padding-left: 2%;
+}
+
+.showcase-user-container {
+  width: 78%;
+  height: 100%;
+  float: left;
+  background-color: rgba(2, 4, 1, 0.1);
+  border-radius: 12px;
+  margin-left: 1px;
+}
+
+.view-user-list {
+  height: 100%;
+  width: 100%;
+}
+
+.users-list-container {
+  height: 95%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.users-list {
+  float: left;
+  overflow-wrap: break-word;
+  width: 20%;
+  height: 18vh;
+  background-color: rgba(255, 152, 0, 0.21);
+  border: 1px solid;
+  margin: 1%;
+  text-align: center;
+  padding-top: 5%;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.quicksearch-container {
+  height: 15%;
+  background-color: #9e9e9e;
+  border-radius: 13px;
+}
+
+.search-box {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.categories-container {
+  height: 85%;
+  background-color: hsla(0, 0%, 62%, 0.49);
+  border-radius: 5px;
+}
+
+.categories-list-container {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 20%;
+}
+
+.categories-list {
+  text-align: center;
+  border: 1px solid;
+  margin-bottom: 1px;
+}
+
+
+/*.popup-view {
+  border: solid;
+  position: absolute;
+  top: 92px;
+  height: auto;
+  width: 263px;
+  background-color: rgba(195, 178, 178, 0.7);
+}*/
+
+.popup-view {
+  top: 92px;
+  height: auto;
+  width: 263px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  position: absolute;
+  /*initial info element not shown*/
+  /*  left: -999999px;
+*/
+  background-color: rgba(195, 178, 178, 0.7);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
