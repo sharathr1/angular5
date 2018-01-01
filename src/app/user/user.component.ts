@@ -10,8 +10,17 @@ declare var $: any;
   providers: [FECompoment]
 })
 export class UserComponent implements OnInit {
+  qwe: boolean;
+  adiv: boolean = false;
+  bdiv: boolean = false;
+  popup: boolean = false;
+  popupObj: Product;
+  categories: Array<any> = [];
+  userlist: Array<any> = [];
+  cat: any;
+
   getcssmodified() {
-    $('.popup-view').slideToggle(); //
+    $("#userboard").tooltip({ position: { my: "left+50 center", at: "right center" } });
   }
 
   constructor(private fe: FECompoment) {
@@ -28,19 +37,13 @@ export class UserComponent implements OnInit {
     }
     console.log("mouse enter : " + div);
   }
-  adiv: boolean = false;
-  bdiv: boolean = false;
-  popup: boolean = false;
-  popupObj: Product;
+
   mouseEnterPopup(a) {
-    console.log(a);
+    this.getcssmodified();
     this.popupObj = a;
     this.popup = false;
-    this.getcssmodified();
-
   }
   mouseLeavePopup(a) {
-    console.log(a);
     this.popupObj = a;
     this.popup = true;
   }
@@ -51,14 +54,9 @@ export class UserComponent implements OnInit {
   refreshProducts() {
     console.log("refreshProducts()");
     this.userlist = this.users;
+    this.cat = 0;
   }
-  categories: Array<any> = [];
-  userlist: Array<any> = [];
 
-  getName() {
-    console.log("ss ", this.fe.getFullNameNum(0))
-    return this.fe.getFullName();
-  }
   getCategories() {
     console.log("getCategories()");
     this.categories = this.users.map(item => item.categoryId)
@@ -66,8 +64,16 @@ export class UserComponent implements OnInit {
     /* return this.getProducts().map(item => item.categoryId)
        .filter((value, index, self) => self.indexOf(value) === index);*/
   }
-  cat: any;
+  id: any;
+  title: any;
+  myFilter = function (item, filter) {
+    console.log("filterByCat()", item);
+
+    return filter === item || filter === item;
+  };
+
   filterByCat(cat) {
+    this.cat = cat;
     console.log("filterByCat()", cat);
     this.userlist = this.users.filter(item => item.categoryId === cat);
     /*  return this.getProducts()

@@ -16,7 +16,7 @@
         </div>
         <div class="categories-list-container">
           <div (click)="filterByCat(i)" *ngFor="let i of categories">
-            <div class="categories-list">
+            <div [ngClass]="{'bck': (cat == i) }" id="selected_{{i}}" class="categories-list">
               {{ i }}
             </div>
           </div>
@@ -29,15 +29,15 @@
         <div style="padding-left: 40%;"> User Dashboard </div>
         <!--<pre>{{products|json}}</pre>-->
         <div class="users-list-container">
-          <div *ngFor="let i of userlist | filter:filtercontent | orderBy:'userlist.title' ">
-            <div (mouseenter)="mouseEnterPopup(i)" (mouseleave)="mouseLeavePopup(i)" class="users-list">
+          <div *ngFor="let i of userlist | filter: filtercontent | orderBy:'userlist.title' ">
+            <div id="userboard" data-container="body" data-toggle="tooltip" data-placement="right" title="{{ popupObj?.desc }}" (mouseenter)="mouseEnterPopup(i)"
+              (mouseleave)="mouseLeavePopup(i)" class="users-list">
               {{ i.title }}
             </div>
           </div>
         </div>
       </div>
-      <div [hidden]="popup" class="popup-view"> {{ popupObj?.desc }}</div>
-
+      <!--      <div [hidden]="popup" class="popup-view"> {{ popupObj?.desc }}</div>-->
     </div>
   </div>
   <!--  <div (mouseover)="hover=true" (mouseleave)="hover=false" style="height:100px; width:100px; background:#e2e2e2">
