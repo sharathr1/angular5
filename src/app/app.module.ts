@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AppComponent } from './app.component';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -63,6 +64,8 @@ import { TableViewComponent } from './tableview/tableview.component';
 import { ServiceCompoment } from './service/service-http.component';
 import { FormdataComponent } from './formdata/formdata.component';
 import { UserComponent } from './user/user.component';
+import { AlwaysAuthGuard } from './app-log.component';
+
 @NgModule({
   exports: [
     CdkTableModule,
@@ -108,12 +111,16 @@ const appRoutes: Routes = [
   { path: 'register-form', component: RegisterdataFormComponent },
   { path: 'fe', component: FECompoment },
 /*  { path: 'snippet', component: SnippetComponent },
-*/  { path: 'viewdetails', component: TableViewComponent },
+ */  { path: 'viewdetails', component: TableViewComponent },
   { path: 'votetaker', component: VoteTakerComponent },
   { path: 'popup', component: DialogOverviewExample, pathMatch: 'full' },
   { path: 'app-charts', component: ChartsComponent },
-  { path: 'pdf', component: PdfreaderComponent },
   { path: 'form', component: FormdataComponent },
+  {
+    path: 'pdf',
+    component: PdfreaderComponent,
+    canActivate: [AlwaysAuthGuard]
+  },
   { path: 'app-user', component: UserComponent, pathMatch: 'full' }
 
 ];
@@ -139,7 +146,7 @@ const appRoutes: Routes = [
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent
   ],
-  providers: [ChartsComponent, ServiceCompoment],
+  providers: [ChartsComponent, ServiceCompoment, AlwaysAuthGuard],
   entryComponents: [DialogOverviewExampleDialog],
   bootstrap: [AppComponent, DialogOverviewExample]
 })
