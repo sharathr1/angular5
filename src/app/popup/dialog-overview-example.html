@@ -12,3 +12,15 @@
     You chose: <i>{{animal}}</i>
   </li>
 </ol>
+<form>
+  From:
+  <input type="date" #fromdate name="fromDate"> To:
+  <input type="date" #todate name="toDate">
+  <button type="submit" class="btn btn-default " (click)="getHolidaydata(fromdate,todate) ">Get Holidays</button>
+</form>
+
+<div *ngFor='let holidays of holidayList'>
+  <ul>
+    <li>{{holidays.holidayDate}} :: {{holidays.holidayReason}} </li>
+  </ul>
+</div>

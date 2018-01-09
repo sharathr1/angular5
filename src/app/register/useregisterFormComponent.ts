@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServiceCompoment } from '../service/service-http.component';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 @Component({
     selector: 'userregister-form',
