@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable, HostListener } from '@angular/core';
 import { Product } from './product.component';
 import { FECompoment } from '../fe/fe.component';
+
 declare var jquery: any;
 declare var $: any;
 @Component({

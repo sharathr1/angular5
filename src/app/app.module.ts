@@ -65,6 +65,7 @@ import { ServiceCompoment } from './service/service-http.component';
 import { FormdataComponent } from './formdata/formdata.component';
 import { UserComponent } from './user/user.component';
 import { AlwaysAuthGuard } from './app-log.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   exports: [
@@ -121,7 +122,8 @@ const appRoutes: Routes = [
     component: PdfreaderComponent,
     canActivate: [AlwaysAuthGuard]
   },
-  { path: 'app-user', component: UserComponent, pathMatch: 'full' }
+  { path: 'app-user', component: UserComponent, pathMatch: 'full' },
+  { path: 'user-profile', component: ProfileComponent, pathMatch: 'full' }
 
 ];
 @NgModule({
@@ -142,7 +144,7 @@ const appRoutes: Routes = [
   ],
   declarations: [
     AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent,
-    RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment, UserComponent,
+    RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment, UserComponent, ProfileComponent,
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent
   ],

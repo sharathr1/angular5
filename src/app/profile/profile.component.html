@@ -1,0 +1,42 @@
+<p>
+  profile works!
+
+</p>
+<input #sldValue [(ngModel)]="slideValue">
+<div id="slider"></div>
+<h2>slideValue = {{slideValue}}</h2>
+
+<div>
+
+</div>
+
+<div *ngIf="!name; else forminfo">
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+    <div class="form-container">
+      <div class="formattr">
+        <h1>My Reactive Form</h1>
+        <label>Emp Name :
+          <input type="text" formControlName="name">
+        </label>
+
+        <label>Description :
+          <textarea  formControlName="description"></textarea>
+        </label>
+
+        <label for="validate">Minimum of 3 Characters</label>
+        <input type="checkbox" name="validate" formControlName="validate" value="1"> On\
+        <input type="submit" [ngClass]="{'diabled-class': !rForm.valid}" class="button" value="Submit Form" [disabled]="!rForm.valid">
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+      <h1>{{ name }}</h1>
+
+      <p>{{ description }}</p>
+    </div>
+  </div>
+</ng-template>
