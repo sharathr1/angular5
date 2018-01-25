@@ -17,9 +17,22 @@ export class ServiceCompoment {
     constructor(private _https: Http) {
 
     }
+    createAuthorizationHeader(headers: Headers) {
+        /* headers.append('Authorization', 'Basic ' +
+             btoa('username:password'));*/
+        headers.append('Authorization', 'bearer  X7lc1mjRZk0QJILKPQfutR0gO2H1');
+        // headers.append('Access-Control-Allow-Origin', 'Origin, Content-Type, X-Auth-Token');
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'GET');
 
+    }
     getService(url): Observable<any> {
-        return this._https.get(url).map((res) => res)
+        let headers = new Headers();
+        this.createAuthorizationHeader(headers)
+        debugger;
+        return this._https.get(url, {
+            headers: headers
+        }).map((res) => res)
             .map(
             (data) => {
                 console.log("this.output =", data.json());
