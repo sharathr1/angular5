@@ -3,11 +3,11 @@
     <h1> Registration Form </h1>
   </div>
   <!--powers is list of string -->
-  <div *ngFor='let pwr of powers'>
+<!--  <div *ngFor='let pwr of powers'>
     <ul>
       <li>{{pwr}}</li>
     </ul>
-  </div>
+  </div>-->
   <!--itList is list of Obj -->
   <div class="container">
     <div *ngFor='let lst of itList'>
@@ -17,6 +17,11 @@
     </div>
   </div>
 </div>
+<tr *ngFor="let c of myMap">
+  <!--  {{c|json }} -->
+  <td *ngFor="let key of c | keys">{{key}}: {{c[key]}}</td>
+</tr>
+
 <div>
   <input type="text" #url (keyup)="onNameKepup($event)">
 
@@ -57,9 +62,3 @@
     <li>{{lst[1]|json }} $$ {{lst[1].key }} :: {{lst[0]}} : {{lst.value}}</li>
   </ul>
 </div> -->
-
-
-<tr *ngFor="let c of myMap">
-  <!--  {{c|json }} -->
-  <td *ngFor="let key of c | keys">{{key}}: {{c[key]}}</td>
-</tr>
