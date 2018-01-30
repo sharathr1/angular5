@@ -66,6 +66,11 @@ import { FormdataComponent } from './formdata/formdata.component';
 import { UserComponent } from './user/user.component';
 import { AlwaysAuthGuard } from './app-log.component';
 import { ProfileComponent } from './profile/profile.component';
+import { Mydirective } from './directive/mydirective';
+import { MyHttpInterceptor } from './Interceptor/interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SimplePipe } from './pipe/custom-pipe';
+import { KeysPipe } from './pipe/keys-pipe';
 
 @NgModule({
   exports: [
@@ -131,7 +136,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule, PdfViewerModule,
-    HttpModule,
+    HttpModule, HttpClientModule,
     Ng2SearchPipeModule, Ng2OrderModule, NgxPaginationModule,
     PlunkerMaterialModule, NgUploaderModule,
     MatNativeDateModule,
@@ -142,13 +147,20 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
+
   declarations: [
     AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent,
     RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment, UserComponent, ProfileComponent,
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
-    DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent
+    DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent, Mydirective, SimplePipe, KeysPipe],
+  providers: [ChartsComponent, ServiceCompoment, AlwaysAuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyHttpInterceptor,
+      multi: true
+    }
   ],
-  providers: [ChartsComponent, ServiceCompoment, AlwaysAuthGuard],
+
   entryComponents: [DialogOverviewExampleDialog],
   bootstrap: [AppComponent, DialogOverviewExample]
 })

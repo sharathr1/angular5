@@ -1,6 +1,7 @@
 <div class="register-data">
   <div *ngIf='itStatus'>
-    Registration Form </div>
+    <h1> Registration Form </h1>
+  </div>
   <!--powers is list of string -->
   <div *ngFor='let pwr of powers'>
     <ul>
@@ -31,3 +32,34 @@
 <div colspan="5" *ngIf="errorCheck " class="alert alert-danger ">
   <strong>{{errorMsg}}!</strong> Unable to get profile information.
 </div>
+<h3 highlight bc='yellow'> Directive Check</h3>
+<br><br>
+<p highlight bc='yellow'>Host Element
+  <br><br> I'm(HostListener) listening to host's <b>click event</b> declared with @HostListener
+
+  <br><br> I'm(HostBinding) binding <b>role property</b> to host element declared with @HostBinding and checking host's property
+  binding updates, If any property change is found, I will update it.
+</p>
+
+<div> Open DOM of host element, click host element(in UI) and check role attribute(in DOM) </div>
+<!--<input type="text" highlights>
+{{ " {{3 |simplepipe :1:2 }\}"}}    {{3 |simplepipe :1:2 } <! >}-->
+<!--{{chechdata()}}-->
+<div style="background: blue; color: goldenrod;">
+  Custome Pipie {{3 |simplepipe :1:2}
+  <!---->} >> {{3 |simplepipe :1:2 }}
+</div>
+<!--
+<div *ngFor="#value of myMap #key=index">{{key}}:{{value}}</div>
+
+<div *ngFor='let lst of myMap.entries()'>
+  <ul>
+    <li>{{lst[1]|json }} $$ {{lst[1].key }} :: {{lst[0]}} : {{lst.value}}</li>
+  </ul>
+</div> -->
+
+
+<tr *ngFor="let c of myMap">
+  <!--  {{c|json }} -->
+  <td *ngFor="let key of c | keys">{{key}}: {{c[key]}}</td>
+</tr>

@@ -33,7 +33,7 @@ export class RegisterCompoment {
     }];
 
     powers = ['Really Smart', 'Super Flexible',
-        'Super Hot', 'Weather Changer'];
+        'Weather Changer'];
     model = new User();
     // submitted = true;
     // onSubmit() {
@@ -93,5 +93,25 @@ export class RegisterCompoment {
         console.log("error", error);
         this.errorMsg = error.statusText;
         this.errorCheck = true;
+    }
+
+    myMap = [
+        { key1: 'val1' },
+        { key2: 'val2' },
+        { key3: 'val3' }
+    ];
+
+    chechdata() {
+        /*  for (let entry of Array.from(this.myMap.entries())) {
+              console.log(entry);
+              let key = entry[0];
+              let value = entry[1];
+              console.log(key, "::", value);
+          }*/
+        for (let i in this.myMap) {
+            console.log(this.myMap[i]);
+            console.log('key: ' + Object.keys(this.myMap[i]) + ',  value: ' + Object.values(this.myMap[i]));
+        }
+
     }
 }
