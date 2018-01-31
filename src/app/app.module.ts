@@ -68,9 +68,10 @@ import { AlwaysAuthGuard } from './app-log.component';
 import { ProfileComponent } from './profile/profile.component';
 import { Mydirective } from './directive/mydirective';
 import { MyHttpInterceptor } from './Interceptor/interceptor';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SimplePipe } from './pipe/custom-pipe';
 import { KeysPipe } from './pipe/keys-pipe';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 @NgModule({
   exports: [
@@ -133,6 +134,8 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   imports: [
+    HttpClientModule,
+    NgHttpLoaderModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule, PdfViewerModule,

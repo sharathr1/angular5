@@ -17,6 +17,7 @@ export class DialogOverviewExample {
 
     animal: string;
     name: string;
+    public chosenMod: object;
     constructor(public dialog: MatDialog, private http: Http, private httpClient: HttpClient) {
 
     }
@@ -64,6 +65,17 @@ export class DialogOverviewExample {
                 console.log(success);
             }
             );
+    }
+    getHoliday(csd) {
+        console.log(" drop down value :", csd);
+    }
+    selectedOption = null;
+    modo(holiday: any) {
+        this.selectedOption = holiday;
+        console.log(holiday, " drop down value :", this.selectedOption);
+
+        debugger;
+
     }
 }
 

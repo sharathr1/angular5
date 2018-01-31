@@ -19,8 +19,25 @@
   <button type="submit" class="btn btn-default " (click)="getHolidaydata(fromdate,todate) ">Get Holidays</button>
 </form>
 
-<div *ngFor='let holidays of holidayList'>
-  <ul>
+<!--<div *ngFor='let holidays of holidayList'>
+  <option value="" selected="selected" disabled>Choose one</option>
+   <ul>
     <li>{{holidays.holidayDate}} :: {{holidays.holidayReason}} </li>
   </ul>
-</div>
+</div>-->
+
+<select style="width: 180px;" (change)="getHoliday($event.target.value)">
+    <option value="" label="Choose one" disabled selected="selected">      
+    <option *ngFor='let holiday of holidayList'  value= {{holiday.id}}>
+             {{holiday.holidayDate}}
+    </option>
+</select>
+<select id="selectid" style="width: 180px;" (change)="modo($event)" class=" form-control-mb-12 ">
+<option *ngFor='let holiday of holidayList'  [value]="holiday" >
+             {{holiday.holidayDate}}
+    </option>   
+</select>
+<select [ngModel]="selectedOption" (ngModelChange)="modo($event)" name="sel2">
+    <option [ngValue]="i" *ngFor="let i of holidayList">{{i.holidayDate}}</option>
+</select>
+<div ng-if="selectedOption != null">{{(selectedOption|json) == "null" ? "" : selectedOption|json }}</div>
