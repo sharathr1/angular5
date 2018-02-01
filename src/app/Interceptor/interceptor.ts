@@ -7,8 +7,10 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
-    constructor() { }
-
+    showErrro: boolean;
+    constructor() {
+        this.showErrro = false;
+    }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         console.log("intercepted request ... ");
@@ -22,10 +24,15 @@ export class MyHttpInterceptor implements HttpInterceptor {
         return next.handle(authReq)
             .catch((error, caught) => {
                 //intercept the respons error and displace it to the console
-                console.log("Error Occurred");
                 console.log(error);
+                this.showErrro = true;
+                console.log("Error Occurred ", this.showErrro);
                 //return the error to the method that called it
                 return Observable.throw(error);
             }) as any;
+    }
+
+    showErrorPopup(): boolean {
+        return this.showErrro;
     }
 }

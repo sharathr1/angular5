@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Spinkit } from 'ng-http-loader/spinkits';
+import { MyHttpInterceptor } from './Interceptor/interceptor';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,9 +25,8 @@ export class AppComponent {
     this.currRouter = window.location.pathname;
     console.log(this.currRouter);
     this.imagePath = 'assets/gradient_bg.jpg';
-
-
   }
+
  /* getroute() {
     console.log('get route');
     this.currRouter = window.location.pathname;

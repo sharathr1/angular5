@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogOverviewExampleDialog } from './dialog-overview-example-dialog';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { HttpClient } from "@angular/common/http";
+import { ServiceCompoment } from '../service/service-http.component';
 
 /**
  * @title Dialog Overview
@@ -18,7 +19,7 @@ export class DialogOverviewExample {
     animal: string;
     name: string;
     public chosenMod: object;
-    constructor(public dialog: MatDialog, private http: Http, private httpClient: HttpClient) {
+    constructor(private service: ServiceCompoment, public dialog: MatDialog, private http: Http, private httpClient: HttpClient) {
 
     }
 

@@ -156,7 +156,7 @@ const appRoutes: Routes = [
     RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment, UserComponent, ProfileComponent,
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent, Mydirective, SimplePipe, KeysPipe],
-  providers: [ChartsComponent, ServiceCompoment, AlwaysAuthGuard,
+  providers: [ChartsComponent, ServiceCompoment, AlwaysAuthGuard, MyHttpInterceptor,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MyHttpInterceptor,
