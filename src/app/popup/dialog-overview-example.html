@@ -32,12 +32,9 @@
              {{holiday.holidayDate}}
     </option>
 </select>
-<select id="selectid" style="width: 180px;" (change)="modo($event)" class=" form-control-mb-12 ">
-<option *ngFor='let holiday of holidayList'  [value]="holiday" >
-             {{holiday.holidayDate}}
-    </option>   
-</select>
-<select [ngModel]="selectedOption" (ngModelChange)="modo($event)" name="sel2">
+
+<select id="selectid" style="width: 180px;" [ngModel]="selectedOption" (ngModelChange)="getHoliday($event)" name="sel2">
     <option [ngValue]="i" *ngFor="let i of holidayList">{{i.holidayDate}}</option>
 </select>
+
 <div ng-if="selectedOption != null">{{(selectedOption|json) == "null" ? "" : selectedOption|json }}</div>

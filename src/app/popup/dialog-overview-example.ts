@@ -12,7 +12,6 @@ import { ServiceCompoment } from '../service/service-http.component';
     selector: 'popup',
     templateUrl: './dialog-overview-example.html',
     styleUrls: ['./dialog-overview-example.css']
-
 })
 export class DialogOverviewExample {
 
@@ -67,15 +66,14 @@ export class DialogOverviewExample {
             }
             );
     }
-    getHoliday(csd) {
-        console.log(" drop down value :", csd);
+    getHoliday(holiday: any) {
+        this.selectedOption = holiday;
+        console.log(holiday, " drop down value :", this.selectedOption);
     }
     selectedOption = null;
     modo(holiday: any) {
         this.selectedOption = holiday;
         console.log(holiday, " drop down value :", this.selectedOption);
-
-        debugger;
 
     }
 }
