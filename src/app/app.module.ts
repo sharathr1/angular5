@@ -72,6 +72,7 @@ import { SimplePipe } from './pipe/custom-pipe';
 import { KeysPipe } from './pipe/keys-pipe';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+import { ActivityTrackerComponent } from './activity-tracker/activity-tracker.component';
 
 @NgModule({
   exports: [
@@ -129,7 +130,9 @@ const appRoutes: Routes = [
     canActivate: [AlwaysAuthGuard]
   },
   { path: 'app-user', component: UserComponent, pathMatch: 'full' },
-  { path: 'user-profile', component: ProfileComponent, pathMatch: 'full' }
+  { path: 'user-profile', component: ProfileComponent, pathMatch: 'full' },
+  { path: 'app-activity-tracker', component: ActivityTrackerComponent, pathMatch: 'full' }
+
 
 ];
 @NgModule({
@@ -152,7 +155,7 @@ const appRoutes: Routes = [
   ],
 
   declarations: [
-    AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent,
+    AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent, ActivityTrackerComponent,
     RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment, UserComponent, ProfileComponent,
     VoteTakerComponent, FECompoment, /*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent, Mydirective, SimplePipe, KeysPipe],

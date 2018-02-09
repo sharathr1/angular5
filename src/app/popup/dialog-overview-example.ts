@@ -14,12 +14,12 @@ import { ServiceCompoment } from '../service/service-http.component';
     styleUrls: ['./dialog-overview-example.css']
 })
 export class DialogOverviewExample {
+    test2: string = "Rr";
 
     animal: string;
     name: string;
     public chosenMod: object;
     constructor(private service: ServiceCompoment, public dialog: MatDialog, private http: Http, private httpClient: HttpClient) {
-
     }
 
 

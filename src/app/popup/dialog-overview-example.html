@@ -25,7 +25,7 @@
     <li>{{holidays.holidayDate}} :: {{holidays.holidayReason}} </li>
   </ul>
 </div>-->
-
+<span >aa {{test2}}</span>
 <select style="width: 180px;" (change)="getHoliday($event.target.value)">
     <option value="" label="Choose one" disabled selected="selected">      
     <option *ngFor='let holiday of holidayList'  value= {{holiday.id}}>

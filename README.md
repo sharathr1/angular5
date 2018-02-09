@@ -26,7 +26,18 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+#Interpollation vs Property Binding 
+https://www.codementor.io/adekunleoyaniyi/interpolation-vs-property-binding-in-angular2-eu1tzbyn4
 
+   template: <div>
+                    <h1>{{citedExample}}</h1>
+                    <img src='{{imagePath}}'/>
+                </div>
+selector: 'rio-counter',
+            <div>
+                    <h1 [innerHtml]=’citedExample’></h1>
+                    <img [src]='imagePath'/>
+            </div>
 ### External Lib:
 npm i --save angular-highcharts highcharts
 
@@ -50,3 +61,22 @@ npm install ngx-uploader --save
 
 
 
+fib = function(numMax){
+    for(var fibArray = [0,1], i=0,j=1,k=0; k<numMax;i=j,j=x,k++ ){
+        x=i+j;
+        fibArray.push(x);
+    }
+    console.log(fibArray);
+}
+
+fib(10)
+<select [(ngModel)]="selectedDay" >
+  <option
+  *ngFor='let day of days; let i = index'
+  [attr.data-index]="i"
+  [ngValue]="i">
+    {{ day.today }}
+  </option>
+</select>
+<br><br>
+<h2>{{ days[selectedDay].msg }}</h2>
