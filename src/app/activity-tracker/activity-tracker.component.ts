@@ -36,4 +36,5 @@ export class ActivityTrackerComponent {
     this.error = false;
   }
 
+
 }
