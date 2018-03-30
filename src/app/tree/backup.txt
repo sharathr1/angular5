@@ -1,0 +1,44 @@
+ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
+  data: any;
+  p: any;
+  constructor() {
+    this.p = new Person;
+  }
+  refresh() {
+    this.p = new Person;
+    $("#person").empty();
+  }
+  addPerson() {
+    let p2 = new Person;
+    p2.id = 5;
+    p2.name = "grand child";
+    //debugger;
+    this.p.children.push(p2);
+    $("#person").empty().append(JSON.stringify(this.p, null, 4));
+    this.data = this.p;
+  }
+
+  doAsyncTask() {
+    let error: any;
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log("Async Work Complete");
+        if (error) {
+          reject();
+        } else {
+          resolve("{ a:1 }");
+        }
+      }, 5);
+    });
+  }
+  
+  testtask() {
+    this.doAsyncTask().then((res) => {
+      console.log(res);
+      this.addPerson();
+    }).then((res) => {
+      console.log("Async Work Complete ", res);
+    });
+  }

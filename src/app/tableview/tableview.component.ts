@@ -26,8 +26,6 @@ export class TableViewComponent {
     this.usersdata = this.chart.fetchdata().then(res => {
       console.log("check table view " + res);
       this.users = JSON.parse(res._body).userslist;
-
-
     });
 
   }

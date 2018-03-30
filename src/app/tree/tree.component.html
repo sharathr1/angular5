@@ -1,0 +1,34 @@
+<p>
+  tree works!
+</p>
+
+
+<div *ngFor="let p of members">
+  <div class="tree-node-container-row">
+    <div class="tree-node-container-column">
+      <tree-node [data]=p (addChild)="addChild($event)"></tree-node>
+    </div>
+  </div>
+</div>
+<a (click)="setDataSet()">Refresh</a>
+<a (click)="getDataSet()">Get DataSet</a>
+<a (click)="gettest()">Get DataSet</a>
+
+
+<a (click)="testPromise()">testPromise</a>
+
+
+
+
+<!--<a (click)="getdata() ">Test</a>
+<a (click)="refresh() ">Refresh</a>
+<a (click)="check() ">check</a>
+<a (click)="addPerson() ">add Person</a>
+<a (click)="testtask() ">testtask</a>
+
+<div id="container ">
+  <p id="person ">
+  </p>
+  <pre>{{data | json}}</pre>
+
+</div> -->

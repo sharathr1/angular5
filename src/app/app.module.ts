@@ -73,6 +73,8 @@ import { KeysPipe } from './pipe/keys-pipe';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 import { ActivityTrackerComponent } from './activity-tracker/activity-tracker.component';
+import { TreeComponent } from './tree/tree.component';
+import { TreeModuleComponent } from './tree/tree-node.component';
 
 @NgModule({
   exports: [
@@ -124,6 +126,8 @@ const appRoutes: Routes = [
   { path: 'popup', component: DialogOverviewExample, pathMatch: 'full' },
   { path: 'app-charts', component: ChartsComponent },
   { path: 'form', component: FormdataComponent },
+  { path: 'tree', component: TreeComponent },
+
   {
     path: 'pdf',
     component: PdfreaderComponent,
@@ -157,7 +161,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent, RegisterCompoment, PdfreaderComponent, TableViewComponent, ActivityTrackerComponent,
     RegisterdataFormComponent, ChartsComponent, VoterComponent, ServiceCompoment, UserComponent, ProfileComponent,
-    VoteTakerComponent, FECompoment, /*SnippetComponent,*/
+    VoteTakerComponent, FECompoment, TreeComponent, TreeModuleComponent,/*SnippetComponent,*/
     DialogOverviewExample, DialogOverviewExampleDialog, FormdataComponent, Mydirective, SimplePipe, KeysPipe],
   providers: [ChartsComponent, ServiceCompoment, AlwaysAuthGuard, MyHttpInterceptor,
     {

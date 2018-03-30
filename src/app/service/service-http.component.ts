@@ -21,7 +21,7 @@ export class ServiceCompoment {
         /* headers.append('Authorization', 'Basic ' +
              btoa('username:password'));*/
         headers.append('Authorization', 'bearer  X7lc1mjRZk0QJILKPQfutR0gO2H1');
-        // headers.append('Access-Control-Allow-Origin', 'Origin, Content-Type, X-Auth-Token');
+        headers.append('Access-Control-Allow-Origin', 'Origin, Content-Type, X-Auth-Token');
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Access-Control-Allow-Methods', 'GET');
 
